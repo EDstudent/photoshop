@@ -18,8 +18,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('event', 'EventsController', ['except' => ['edit', 'update', 'destroy']]);    
 Route::get('admin', 'AdminController');
-Route::resource('order', 'OrderyController', ['only' => ['create', 'store']]);
-Route::resource('offer', 'OffersController', ['only' => ['create', 'store']]);
+//Route::resource('order', 'OrderyController', ['only' => ['create', 'store']]);
+Route::get('/offer', 'OffersController@create');
+Route::post('/offer', 'OffersController@store');
 //Route::get('events/search','EventsController@getSearch');
 //Route::post('events/search','EventsController@postSearch');
 

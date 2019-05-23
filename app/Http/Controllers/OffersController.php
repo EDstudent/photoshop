@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
-use App\Ticket;
+use App\Product;
+use App\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use function redirect;
+use function view;
 
-class TicketsController extends Controller
+class OffersController extends Controller
 {
     // Middleware
     public function __construct()
@@ -17,38 +21,42 @@ class TicketsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        return view('offers_create', array('events' => Event::orderBy('name')->pluck('name', 'id')));
+       // return view('offers_create', array('name' => Product::all()->sortBy('name')->pluck('name','id'), array('star' => Star::all())));
+        return view('offers_create', array('name' => Product::all()->sortBy('name')->pluck('name','id')));
+        //return view('offers_create', array('star' => Star::all()));
     }
     /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
         $data = $request->all();
 
         $rules = $rules = array(
-            'ID_us' => 'require',
-            'ID_pr' => 'required',
             'product' => 'required',
+            'price' => 'required',
             'country' => 'required',
+            'description' => 'required',
         );
 
         $this->validate($request, $rules);
 
-        $offers = new Ordery();
-        $offers->ID_us = $data['ID_us'];
-        $offers->ID_pr = $data['ID_pr'];
+        $offers = new Offer();
+        $offers->ID_us = Auth::id();
+        $offers->id_pr = $data['product'];
+        //$offers->id_st = $data['star'];
         $offers->price = $data['price'];
         $offers->country = $data['country'];
+        $offers->description = $data['description'];
         $offers->save();
-        return redirect('admin')->with('message','Offer added!');
+        return redirect('home');
     }
 
 }

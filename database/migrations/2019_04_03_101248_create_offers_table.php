@@ -14,13 +14,16 @@ class CreateOffersTable extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->bigIncrements('id_offer');
+            $table->bigIncrements('id');
             $table->integer('id_us')->unsigned();
             $table->foreign('id_us')->references('id')->on('users');
             $table->integer('id_pr')->unsigned();
-            $table->foreign('id_pr')->references('id_p')->on('product');
-            $table->integer('price');
+            $table->foreign('id_pr')->references('id')->on('products');
+            $table->integer('id_st')->unsigned();
+            $table->foreign('id_st')->references('id')->on('stars');
+            $table->decimal('price',5,2);
             $table->string('country',30);
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -32,11 +35,6 @@ class CreateOffersTable extends Migration
      */
     public function down()
     {
-        Schema::table('offers', function (Blueprint $table) 
-            {
-            $table->dropForeign('offers_users_id_foreign');
-            $table->dropForeign('offers_users_id_p_foreign');
-            $table->dropColumn('id');
-            });
+       Schema::dropIfExists('offers');
     }
 }
