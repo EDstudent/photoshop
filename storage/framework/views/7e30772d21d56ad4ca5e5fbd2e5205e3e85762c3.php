@@ -80,5 +80,4 @@
     </div>
 </body>
 </html>
-
-<?php /* C:\wamp64\www\myshop\resources\views/layouts/app.blade.php */ ?>
+<?php /**PATH C:\wamp64\www\myshop\resources\views/layouts/app.blade.php ENDPATH**/ ?>

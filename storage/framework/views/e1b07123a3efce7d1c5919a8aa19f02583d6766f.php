@@ -64,11 +64,16 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        div class="flex-center position-ref full-height">
             <?php if(Route::has('login')): ?>
                 <div class="top-right links">
                     <?php if(auth()->guard()->check()): ?>
                         <a href="<?php echo e(url('/home')); ?>">Home</a>
+                        <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                        </a>
                     <?php else: ?>
                         <a href="<?php echo e(route('login')); ?>">Login</a>
 
@@ -78,7 +83,7 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-
+        
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
@@ -96,5 +101,4 @@
         </div>
     </body>
 </html>
-
-<?php /* C:\wamp64\www\myshop\resources\views/welcome.blade.php */ ?>
+<?php /**PATH C:\wamp64\www\myshop\resources\views/welcome.blade.php ENDPATH**/ ?>
