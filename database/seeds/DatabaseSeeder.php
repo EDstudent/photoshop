@@ -13,11 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
+        
             DB::table('users')->insert([
                             'name' => 'Admin',
                             'email' => 'admin@p.p',
                             'password' => bcrypt('asd123'),
-                            'role' => 2,
+                            'role' => 1,
                     ]);	
             DB::table('users')->insert([
                             'name' => 'Edmund',
@@ -55,31 +57,28 @@ class DatabaseSeeder extends Seeder
                             'name' => 'mellon',
                     ]);
             
-            DB::table('stars')->insert([
-                'name' => '*',
-            ]);
-            DB::table('stars')->insert([
-                'name' => '**',
-            ]);
-            DB::table('stars')->insert([
-                'name' => '***',
-            ]);
-            DB::table('stars')->insert([
-                'name' => '****',
-            ]);
-            DB::table('stars')->
-                    insert([
-                'name' => '*****',
-            ]);
-            
-            
+
+          
             DB::table('offers')->insert([
-                            'id_us' => '2',
-                            'id_pr' => '2',
-                            'id_st' => '1',
+                            'user_id' => '3',
+                            'product_id' => '2',
                             'price' => '0.50',
                             'country' => 'Latvija',
                             'description' => 'made from grean apples with pineaplles',
+                    ]);
+            DB::table('offers')->insert([
+                            'user_id' => '3',
+                            'product_id' => '1',
+                            'price' => '0.80',
+                            'country' => 'Latvija',
+                            'description' => '.........',
+                    ]);
+            DB::table('offers')->insert([
+                            'user_id' => '4',
+                            'product_id' => '2',
+                            'price' => '3.50',
+                            'country' => 'Kazahstan',
+                            'description' => ' ',
                     ]);
 		
 		

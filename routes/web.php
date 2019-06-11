@@ -12,15 +12,26 @@
 */
 
 Route::get('/', 'EventsController@index');
+Route::get('/logout',Auth::logout());
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::resource('event', 'EventsController', ['except' => ['edit', 'update', 'destroy']]);    
-Route::get('admin', 'AdminController');
-//Route::resource('order', 'OrderyController', ['only' => ['create', 'store']]);
+Route::get('/home', 'HomeController@index')->name('home'); 
+//Route::get('admin', 'AdminController');
+
+//Offer 2gr
 Route::get('/offer', 'OffersController@create');
 Route::post('/offer', 'OffersController@store');
+
+//Product 1gr
+Route::get('/create_product', 'CreateProductController@create');
+Route::post('/create_product', 'CreateProductController@store');
+
+//Lang 2gr
+Route::get('lang/{locale}','LanguageController');
+
+
 //Route::get('events/search','EventsController@getSearch');
 //Route::post('events/search','EventsController@postSearch');
 

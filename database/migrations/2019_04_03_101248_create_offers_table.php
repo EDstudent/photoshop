@@ -15,12 +15,10 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_us')->unsigned();
-            $table->foreign('id_us')->references('id')->on('users');
-            $table->integer('id_pr')->unsigned();
-            $table->foreign('id_pr')->references('id')->on('products');
-            $table->integer('id_st')->unsigned();
-            $table->foreign('id_st')->references('id')->on('stars');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
             $table->decimal('price',5,2);
             $table->string('country',30);
             $table->string('description');

@@ -28,10 +28,10 @@ class User extends Authenticatable//?
         'password', 'remember_token',
     ];
     public function isAdmin() {
-        return ($this->role == 2);
+        return ($this->role == 1);
     } 
-    public function isCreator() {
-        return ($this->role == 3);
+    public function isUser() {
+        return ($this->role == 2);
     } 
     
     public function offers() {return $this->hasMany('App\Offer');}

@@ -14,7 +14,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!(Auth::check() && Auth::user()->isAdmin()))
+        if ( !(Auth::user()->isAdmin()))
             return redirect('/')->withErrors('Access denied to ADMIN functionality!');
         return $next($request);
     }

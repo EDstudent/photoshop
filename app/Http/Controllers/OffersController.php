@@ -16,7 +16,7 @@ class OffersController extends Controller
     public function __construct()
     {
         // only Admins have access
-        $this->middleware('admin');
+        $this->middleware('user');
     }
     /**
      * Show the form for creating a new resource.
@@ -40,17 +40,17 @@ class OffersController extends Controller
         $data = $request->all();
 
         $rules = $rules = array(
-            'product' => 'required',
-            'price' => 'required',
-            'country' => 'required',
-            'description' => 'required',
+            'name' => 'required|exists:product,name',
+            'price' => 'required|numeric|min:-2|max:10',
+            'country' => 'required|min:3|max:10',
+            'description' => 'required|min:3|max:100',
         );
 
         $this->validate($request, $rules);
 
         $offers = new Offer();
-        $offers->ID_us = Auth::id();
-        $offers->id_pr = $data['product'];
+        $offers->user_id = Auth::id();
+        $offers->product_id = $data['product'];
         //$offers->id_st = $data['star'];
         $offers->price = $data['price'];
         $offers->country = $data['country'];
