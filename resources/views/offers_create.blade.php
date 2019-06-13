@@ -54,9 +54,9 @@
                         </span>
                     @endif
                     </div>
-                    </div> 
-                    
+                    </div>
                     {!! Form::submit('submit data', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

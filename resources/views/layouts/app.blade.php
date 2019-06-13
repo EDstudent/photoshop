@@ -11,7 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -33,8 +35,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                        @if ( !Auth::guest() && Auth::user()->isAdmin() )
+                            <li><a class="nav-link" href="/admin">@lang('messages.admin_panel')</a></li>
+                        @endif
+                      
+                        <li><a class="nav-link" href="/home">@lang('messages.home')</a></li>
+                        <li><a class="nav-link" href="/offer">@lang('messages.offer')</a></li>
+                        <li><a class="nav-link" href="/product">@lang('messages.product')</a></li>
+                        <li><a class="nav-link" href="/search">@lang('messages.search')</a></li>
+                        <li><a class="nav-link" href="/lang/en">ENG</a></li>
+                        <li><a class="nav-link" href="/lang/lv">LV</a></li>
+                    </ul> 
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

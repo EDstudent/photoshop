@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -19,7 +20,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view("welcome");
+        return view("welcome"/*, array('user' => User::all()->sortBy('name')->pluck('name','id','email','role'))*/);
     }
 
     /**
@@ -88,14 +89,6 @@ class EventsController extends Controller
     {
         //
     }
-    
-    // AJAX view
-    public function getSearch() {
-        
-    }
-    // AJAX search
-    public function postSearch(Request $request) {
-        
-    }
+
     
 }

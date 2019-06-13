@@ -1,48 +1,31 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', 'EventsController@index');
-Route::get('/logout',Auth::logout());
-
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home'); 
-//Route::get('admin', 'AdminController');
+Route::get('/home', 'HomeController@index');
+Route::get('/admin', 'AdminController');
 
 //Offer 2gr
-Route::get('/offer', 'OffersController@create');
+Route::get('/offer', 'OffersController@index');
 Route::post('/offer', 'OffersController@store');
 
 //Product 1gr
-Route::get('/create_product', 'CreateProductController@create');
-Route::post('/create_product', 'CreateProductController@store');
+Route::get('/product/create', 'ProductController@create');
+Route::post('/product/create', 'ProductController@store');
+//Product 2gr
+Route::get('/product', 'ProductController@index');
+
 
 //Lang 2gr
 Route::get('lang/{locale}','LanguageController');
 
+//Role 1gr
+Route::get('/role','RoleController@index');
+Route::get('/role/delete/{id}','RoleController@destroy');
+Route::post('/role','RoleController@update');
 
-//Route::get('events/search','EventsController@getSearch');
-//Route::post('events/search','EventsController@postSearch');
 
 
-
-/*Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'SpecialController@index');
-Route::get('/users/update','SpecialController@update');
-
-Route::get('/usercontroller/path',[
-   'middleware' => 'First',
-   'uses' => 'UserController@showPath'
-]);*/
+Route::get('/search', 'SearchController@getSearch');
+Route::post('/search', 'SearchController@postSearch');

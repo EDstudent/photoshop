@@ -46,5 +46,14 @@ return [
     'pineaples' => 'Pineaple',
     'mellon' => 'Mellon',
     
+    
+    'home' => 'Home',
+    'offer' => 'Create new Offer',
+    'product' => 'List of products',
+    
+    'add_product' => 'Izveidot jaunu Produktu',
+    'see_user_roles' => 'Lietotāju saraksts ar iespēju mainīt lomu',
+    'create_new_offer' => 'Izveidot jaunu Offeru',
+    
 ];
 

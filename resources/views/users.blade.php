@@ -6,32 +6,50 @@
             Users
         </div>
         <div class="card-body">
-            <form action="{{url('/users/update')}}" class='form-horizontal'>
+            
             <table class="table table-hover">
             <tr class="toprow">
-                <th></th>
+                
                 <th>User</th>
                 <th>Email</th>
-                <th>Role<th>
+                <th>Role</th>
+                <th></th>
+                <th></th>
             </tr>
-            <?php $i=1; $roles=array('none','admin','creator');?>
-             @foreach ($users as $user)<tr>
-                <td>{{$i++}}</td>
-             <td>{{$user->name}} </td> 
-             <td>{{$user->email}} </td> 
-             <td>
-                <select name="role{{$user->id}}" class="form-control" id="role{{$user->id}}">
-                        @foreach ($roles as $r)
-                            <option value={{$r}} 
-                            @if ($r==$roles[$user->role-1]) selected @endif
-                            >{{$r}}</option>
-                        @endforeach
-                </select>
-                             </td>
-                </tr>@endforeach
+            
+        @if ( Auth::user()->isAdmin() )   
+            @foreach ($users as $user)
+             <tr>  
+                <td>{{$user->name}} </td> 
+                <td>{{$user->email}} </td> 
+                <td>{{$user->role}}</td>
+                <td><a class="btn btn-primary btn-sm" href='{{ url('/role/delete', $user->id) }}'>X</a>
+                <td>
+                    {!! Form::open(['action' => 'RoleController@update', 'files' => false, 'class' => 'form-horizontal']) !!}
+                    <div class="col-md-6">
+                    {!! Form::label('Role', 'New Role', ['class' => '.visible-*-inline-block']) !!}
+                    </div>
+                    <div class="col-md-6">
+                    {!! Form::text('role', '', ['class' => 'form-control'.($errors->has('role') ? ' is-invalid' : '' )]) !!}  
+                    </div>
+                     @if ($errors->has('Role'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('role') }}</strong>
+                        </span>
+                    @endif
+                    {!! Form::hidden ('id',$user->id)!!}
+                    {!! Form::submit('submit data', ['class' => '.visible-*-inline-block']) !!}
+                     {{Form::close()}}
+                </td>    
+                    
+                </td>
+            </tr>
+        
+            @endforeach
+        @endif    
             </table>
             @csrf
-            <input class="btn right btn-a " type="submit" value="update">
+            
             </form>
         </div>
     </div>

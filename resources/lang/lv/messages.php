@@ -38,15 +38,21 @@ return [
     'rating' => 'Reitings',
     
     'dashboard' => 'Piepasījumu saraksts',
-    /*
+    
     //Producti 
     'apple' => 'Āboli',
     'juice' => 'Sula',
     'watermellon' => 'Arbuzs',
     'pineaples' => 'Ananas',
     'mellon' => 'Melone',
-    */
-    '' => '',
+    
+    'home' => 'Mājās',
+    'offer' => 'Izveidot jaunu Offeru',
+    'product' => 'Productu saraksts',
+    
+    'add_product' => 'Create new Product',
+    'see_user_roles' => 'User list with posibility to change role',
+    'create_new_offer' => 'Create new Offer',
     
 ];
 

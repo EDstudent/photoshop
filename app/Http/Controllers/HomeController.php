@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return \Illuminate\Http\Response;
-        return //Offer::first()->product;
-        view('home', array('product' => 'products', 'products' => Offer::orderBy('product_id')->get()));
+        return view('home', array('product' => 'products', 'products' => Offer::orderBy('product_id')->get()));
+        
     }
+
 }

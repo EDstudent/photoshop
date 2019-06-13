@@ -67,7 +67,7 @@
         div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    @auth
+                    @auth<!-- Nestrada  -->
                         <a href="{{ url('/home') }}">Home</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

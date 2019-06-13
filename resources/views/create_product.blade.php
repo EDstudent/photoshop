@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Add a new product</div>
                 <div class="card-body">
-                    {!! Form::open(['action' => 'CreateProductController@store', 'files' => false, 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['action' => 'ProductController@store', 'files' => false, 'class' => 'form-horizontal']) !!}
                     <div class="form-group row">
                     {!! Form::label('product', 'Product name', ['class' => 'col-md-4 control-label text-md-right']) !!}
                     <div class="col-md-6">
