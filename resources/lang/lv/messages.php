@@ -50,9 +50,10 @@ return [
     'offer' => 'Izveidot jaunu Offeru',
     'product' => 'Productu saraksts',
     
-    'add_product' => 'Create new Product',
-    'see_user_roles' => 'User list with posibility to change role',
-    'create_new_offer' => 'Create new Offer',
+   'product_list' => 'Produktu saraksts',
+    'add_product' => 'Izveidot jaunu Produktu',
+    'see_user_roles' => 'Lietotāju saraksts ar iespēju mainīt lomu',
+    'create_new_offer' => 'Izveidot jaunu Offeru',
     
 ];
 

@@ -33,10 +33,10 @@ class SearchController extends Controller
     }
     
     public function postSearch(Request $request) {
-        return Offer::where('product->name', 'LIKE', '%'.$request->get('search').'%')
-                ->orWhere('price', 'LIKE', '%'.$request->get('search').'%')->get()
-                ->orWhere('country', 'LIKE', '%'.$request->get('search').'%')->get()
-                ->orWhere('description', 'LIKE', '%'.$request->get('search').'%')->get();
+        return Offer::where('description', 'LIKE', '%'.$request->get('search').'%')->get();
+                //where('price', '=', '%'.$request->get('search').'%')
+                //->orWhere('country', 'LIKE', '%'.$request->get('search').'%')
+                //->orWhere('description', 'LIKE', '%'.$request->get('search').'%')->get();
     }
 }
 

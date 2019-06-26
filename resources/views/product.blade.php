@@ -4,22 +4,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                    @foreach ( $products as $product )
-                    <div class="card">
-                        <div class="card-body">
-                   
-                        <p class="card-text">
-                            
-                            <span class="badge badge-primary">{{$product->id}}</span>
-                            <span class="badge badge-primary">{{$product->name}}</span>
-                        </p>
-                        </div>
+            <div class="card-header">Add a new Product</div>
+                <div class="card-body">
+                    {!! Form::open(['action' => 'ProductController@store', 'files' => false, 'class' => 'form-horizontal']) !!}
+                    
+                    <div class="form-group row">
+                    {!! Form::label('product', 'New product name', ['class' => 'col-md-4 control-label text-md-right']) !!}
+                    <div class="col-md-6">
+                    {!! Form::text('product', '', ['class' => 'form-control'.($errors->has('product') ? ' is-invalid' : '' )]) !!}
+                     @if ($errors->has('product'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('product') }}</strong>
+                        </span>
+                    @endif     
                     </div>
-                    @endforeach
+                    </div>
+                    
+                    
+                    {!! Form::submit('submit data', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::close() !!}
+                </div>
+        </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection
 

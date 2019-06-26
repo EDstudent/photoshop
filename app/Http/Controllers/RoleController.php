@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     // Middleware
     public function __construct() {
-        
+        $this->middleware('user');
     }
     
     /**

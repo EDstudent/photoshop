@@ -25,7 +25,5 @@ Route::get('/role','RoleController@index');
 Route::get('/role/delete/{id}','RoleController@destroy');
 Route::post('/role','RoleController@update');
 
-
-
 Route::get('/search', 'SearchController@getSearch');
-Route::post('/search', 'SearchController@postSearch');
+Route::post('/home/search', 'SearchController@postSearch');

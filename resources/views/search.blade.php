@@ -5,15 +5,22 @@
 $(document).ready(function () {
     $("#search").keyup(function () {
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.post("/home/search", { search: $('#search').val(), _token: CSRF_TOKEN }, function(data) {
-            $('.home').html('');
-            $.each(data, function(i, event) {
+                            console.log(CSRF_TOKEN);
+                            $.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': CSRF_TOKEN
+  }
+});
+        $.post('/home/search', { search: $('#search').val(), _token: CSRF_TOKEN }, function(data) {
+                    console.log(data);
+            $('.offer').html('');
+            $.each(data, function(i, offer) {
                 var c = '<div class="list-item-with-icon row">\n\
                              <div class="col-md-8">\n\
                                <h4><a href="/offer/'+offer.id+'">'+offer.price+'</a></h4>\n\
                              <div>'+offer.description+'</div>\n\
                            </div>';
-                 $('.home').append(c);
+                 $('.offer').append(c);
             });
         });
     })
