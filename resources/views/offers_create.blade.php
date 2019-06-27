@@ -8,14 +8,14 @@
                 <div class="card-header">Add a new offer</div>
                 <div class="card-body">
                     {!! Form::open(['action' => 'OffersController@store', 'files' => false, 'class' => 'form-horizontal']) !!}
-                    <!--    auth save ??  -->
+                    
                     <div class="form-group row">
-                    {!! Form::label('product', 'Product name', ['class' => 'col-md-4 control-label text-md-right']) !!}
+                    {!! Form::label('name', 'Product name', ['class' => 'col-md-4 control-label text-md-right']) !!}
                     <div class="col-md-6">
-                    {!! Form::select('product', $name, '', ['class' => 'form-control'.($errors->has('product') ? ' is-invalid' : '' )]) !!}
-                     @if ($errors->has('product'))
+                    {!! Form::select('name', $name, '', ['class' => 'form-control'.($errors->has('name') ? ' is-invalid' : '' )]) !!}
+                     @if ($errors->has('name'))
                         <span class="invalid-feedback">
-                            <strong>{{ $errors->first('product') }}</strong>
+                            <strong>{{ $errors->first('name') }}</strong>
                         </span>
                     @endif     
                     </div>
@@ -55,8 +55,10 @@
                     @endif
                     </div>
                     </div>
+                    
                     {!! Form::submit('submit data', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
+                    
                 </div>
             </div>
         </div>

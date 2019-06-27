@@ -6,7 +6,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/admin', 'AdminController');
 
-//Offer 2gr
+//Offer 2gr ***
 Route::get('/offer', 'OffersController@index');
 Route::post('/offer', 'OffersController@store');
 

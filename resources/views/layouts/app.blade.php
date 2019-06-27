@@ -43,12 +43,14 @@
                             <li><a class="nav-link" href="/lang/en">ENG</a></li>
                             <li><a class="nav-link" href="/lang/lv">LV</a></li>
                         @endif
-                            
+                        
+                        
+                        
+                 
                             
                         @if (  !Auth::guest() && Auth::user()->isUser())
                             <li><a class="nav-link" href="/home">@lang('messages.home')</a></li>
-                            <li><a class="nav-link" href="/offer">@lang('messages.offer')</a></li>
-                            <li><a class="nav-link" href="/product">@lang('messages.product')</a></li>
+                            <!--<li><a class="nav-link" href="/offer">@lang('messages.offer')</a></li>-->
                             <li><a class="nav-link" href="/search">@lang('messages.search')</a></li>
                             <li><a class="nav-link" href="/lang/en">ENG</a></li>
                             <li><a class="nav-link" href="/lang/lv">LV</a></li>

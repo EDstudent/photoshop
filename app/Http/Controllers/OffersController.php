@@ -35,7 +35,7 @@ class OffersController extends Controller
         $data = $request->all();
         $rules = $rules = array(
             'name' => 'required|exists:product,name',
-            'price' => 'required|numeric|min:1|max:100',
+            'price' => 'required|numeric|min:0|max:100',
             'country' => 'required|min:3|max:10',
             'description' => 'max:100',
         );
@@ -43,7 +43,7 @@ class OffersController extends Controller
         $this->validate($request, $rules);
         $offers = new Offer();
         $offers->user_id = Auth::id();
-        $offers->product_id = $data['product'];
+        $offers->product_id = $data['name'];
         $offers->price = $data['price'];
         $offers->country = $data['country'];
         $offers->description = $data['description'];

@@ -9,23 +9,14 @@
                 
                 
                 <div class="card-header">@lang('messages.dashboard')</div>
-                <!--
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>-->
+               
                 
                     @foreach ( $products as $product )
                     <div class="card">
                         <div class="card-body">
                    
                         <p class="card-text">
-                            <!--<span class="badge badge-primary">@lang('messages.'.($product->product->name))</span>--> 
+                           
                             <span class="badge badge-primary">@lang('messages.'.($product->product->name))</span>
                             <span class="badge badge-primary">{{$product->product->name}}</span>
                             <span class="badge badge-primary">{{$product->price}}</span>

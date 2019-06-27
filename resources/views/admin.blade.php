@@ -12,7 +12,7 @@
                     @endif     
                     </div>
                     <ul class="list-group">
-                       <li class="list-group-item"><a href="{{ url('/product') }}">@lang('messages.add_product')</a></li>
+                       <!--<li class="list-group-item"><a href="{{ url('/product') }}">@lang('messages.add_product')</a></li>-->
                        <li class="list-group-item"><a href="{{ url('/role') }}">@lang('messages.see_user_roles')</a></li>
                        <li class="list-group-item"><a href="{{ url('/offer') }}">@lang('messages.create_new_offer')</a></li>
                     </ul>
